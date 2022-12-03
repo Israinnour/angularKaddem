@@ -7,6 +7,9 @@ import { HomeComponent } from './home/home.component';
 import { GestionDepartementModule } from './gestion-departement/gestion-departement.module';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
@@ -14,12 +17,15 @@ import { FooterComponent } from './footer/footer.component';
     HomeComponent,
     HeaderComponent,
     FooterComponent,
-   
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    GestionDepartementModule
+    GestionDepartementModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
