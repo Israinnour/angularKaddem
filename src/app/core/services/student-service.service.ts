@@ -14,6 +14,12 @@ export class StudentServiceService {
   getAllStudents(){
     return this.http.get<student[]>(this.url+"/GetAll");
   }
+  deleteStudent(id:number){
+    return this.http.delete(this.url+"/delete/"+id);
+  }
+  addStudent(etudiant:student){
+    return this.http.post(this.url+"/add" ,etudiant);
+  }
 
 
 }

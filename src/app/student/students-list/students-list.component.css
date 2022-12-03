@@ -180,3 +180,25 @@ body{margin-top:20px;}
   
     opacity: 1;
 }
+.delete{
+	width: 500px;
+	height: 100px;
+	margin-left:200px ;
+	display: flex;
+	position: absolute;
+	align-items: center;
+	justify-content: center;
+	color: #262525;
+	background-color: lightgray;
+	z-index: 1;
+	border-radius: 20px;
+	border:1px solid red;
+	flex-direction: column;
+}
+
+.buttons{
+	display: flex;
+	position: relative;
+	justify-content: space-around;
+	align-items: flex-end;
+}
