@@ -25,5 +25,8 @@ export class ListDepartementComponent implements OnInit {
     )
 
   }
+  DeleteDepart(id:any){
+    this.departS.deleteUser(Number(id)).subscribe( () =>this.getListDepart() );
+  }
 
 }
