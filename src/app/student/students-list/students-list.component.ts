@@ -11,8 +11,8 @@ import { DeleteStudentComponent } from '../delete-student/delete-student.compone
   styleUrls: ['./students-list.component.css']
 })
 export class StudentsListComponent implements OnInit {
-  //isHidden=true;
- // id!:Number;
+  isHidden=true;
+ id!:Number;
   studentList:student[]=[]
   constructor(private studentService :StudentServiceService,private route:Router) { }
   adding=false; 
@@ -28,16 +28,17 @@ export class StudentsListComponent implements OnInit {
   }
 
  
-  // show(s:student){
-  //   id=
-  //   this.isHidden=false;
-  // }
-  // hide(){
-  //   this.isHidden=true;
-  // }
+  show(){
+    this.isHidden=false;
+  }
+  hide(){
+    this.isHidden=true;
+  }
   DeleteStudent(idEtudient:any){
     this.studentService.deleteStudent(Number(idEtudient)).subscribe(()=>this.getStudents());
     this.removeElementFromArray(idEtudient);
+    this.isHidden=true;
+
    }
    removeElementFromArray(id: number) {
     this.studentList.forEach((student,index)=>{

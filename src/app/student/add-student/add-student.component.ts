@@ -20,7 +20,7 @@ export class AddStudentComponent implements OnInit {
     
     addStudent(){
      let etudiant =new student();
-     etudiant.nomE=this.reactiveForm.get('firstname')?.value;
+     etudiant.nomE=this.reactiveForm.get('firstName')?.value;
      etudiant.prenomE=this.reactiveForm.get('lastName')?.value;
      etudiant.option=this.reactiveForm.get('option')?.value;
 
