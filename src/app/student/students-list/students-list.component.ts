@@ -11,11 +11,17 @@ import { DeleteStudentComponent } from '../delete-student/delete-student.compone
   styleUrls: ['./students-list.component.css']
 })
 export class StudentsListComponent implements OnInit {
-  isHidden=true;
+
+  deleting=false;
  id!:Number;
-  studentList:student[]=[]
+ etudiantAM!:student;
+ etudiant!:student;
+ studentList:student[]=[]
+ adding=false; 
+ updating=false;
+ filter!:String;
+
   constructor(private studentService :StudentServiceService,private route:Router) { }
-  adding=false; 
   ngOnInit(): void {
     this.getStudents();
   }
@@ -27,24 +33,36 @@ export class StudentsListComponent implements OnInit {
     this.adding= !this.adding;
   }
 
- 
-  show(){
-    this.isHidden=false;
+  
+  showDelete(etudiant:any){
+    this.etudiantAM=etudiant;
+    this.deleting=true;
+  
   }
-  hide(){
-    this.isHidden=true;
+  hideDelete(){
+    this.deleting=false;
   }
-  DeleteStudent(idEtudient:any){
-    this.studentService.deleteStudent(Number(idEtudient)).subscribe(()=>this.getStudents());
-    this.removeElementFromArray(idEtudient);
-    this.isHidden=true;
 
+  DeleteStudent(){
+    let id = this.etudiantAM.idEtudiant
+
+    this.studentService.deleteStudent(id).subscribe(()=>this.getStudents());
+    this.removeElementFromArray(id);
+    this.hideDelete();
    }
    removeElementFromArray(id: number) {
     this.studentList.forEach((student,index)=>{
-        if(student.idEtudiant==id) this.studentList.splice(index,1);
+        if(student.idEtudiant==id) 
+          this.studentList.splice(index,1);
     });
-}
+  }
+
+  modif(etudiant:student){
+    this.etudiantAM=etudiant;
+    this.updating =!this.updating;
+    console.log(this.etudiantAM);
+  }
+
    
    
 

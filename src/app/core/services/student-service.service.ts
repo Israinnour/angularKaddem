@@ -20,6 +20,9 @@ export class StudentServiceService {
   addStudent(etudiant:student){
     return this.http.post(this.url+"/add" ,etudiant);
   }
+  updateStudent(etudiant : student){
+    return this.http.put(this.url+"/update",etudiant)
+  }
 
 
 }
