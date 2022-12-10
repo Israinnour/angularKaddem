@@ -8,15 +8,20 @@ import { StudentServiceService } from 'src/app/core/services/student-service.ser
   templateUrl: './update-student.component.html',
   styleUrls: ['./update-student.component.css']
 })
+
 export class UpdateStudentComponent implements OnInit {
   @Input() studentList!:student[];
   @Input() etudiantAM!:student;
+
+
   reactiveForm = this.fb.group({
     firstName:['', [Validators.required, Validators.minLength(3)]],
     lastName: ['',[Validators.required]],
     option:['',[Validators.required]]
    
     });
+
+
     updateStudent(){
       let NvEtudiant=new student();
       NvEtudiant.nomE=this.reactiveForm.get('firstName')?.value;

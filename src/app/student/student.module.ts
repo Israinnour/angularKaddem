@@ -9,6 +9,7 @@ import{HttpClientModule} from '@angular/common/http';
 import { StudentServiceService } from '../core/services/student-service.service';
 import { UpdateStudentComponent } from './update-student/update-student.component';
 import { DeleteStudentComponent } from './delete-student/delete-student.component';
+import { CompetenceService } from '../core/services/competence.service';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,7 @@ import { DeleteStudentComponent } from './delete-student/delete-student.componen
     UpdateStudentComponent,
     DeleteStudentComponent
   ],
-  providers:[StudentServiceService],
+  providers:[StudentServiceService,CompetenceService],
   imports: [
     CommonModule,
     StudentRoutingModule,

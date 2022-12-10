@@ -5,9 +5,12 @@
 </div>
 
 <div class="container">
-  <app-add-student [studentList]="studentList" *ngIf="adding"></app-add-student>
-  <app-update-student [studentList]="studentList" [etudiantAM]="etudiantAM" *ngIf="updating"></app-update-student>
-  
+  <div class="add" *ngIf="adding">
+  <app-add-student (addingModeOff)="adding=false" [studentList]="studentList" ></app-add-student>
+  </div>
+  <div class="update" *ngIf="updating">
+  <app-update-student [studentList]="studentList" [etudiantAM]="etudiantAM" ></app-update-student>
+  </div>
   <div class="delete" *ngIf="deleting">
     <div>
       <p>Are you sure you want to delete this student ?</p>
