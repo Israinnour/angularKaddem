@@ -228,8 +228,8 @@ body{margin-top:20px;}
 	display: flex;
 	position:absolute;
 	bottom: 100px;
-	color: white;
-	background: #969696;
+	color: black;
+	background: whitesmoke;
 	align-items: center;
 	justify-content: center;
 
@@ -243,8 +243,8 @@ body{margin-top:20px;}
 	display: flex;
 	position:absolute;
 	bottom: 100px;
-	color: white;
-	background: #969696;
+	color: black;
+	background: whitesmoke;
 	align-items: center;
 	justify-content: center;
 

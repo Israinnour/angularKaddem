@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { student } from 'src/app/core/models/student';
 import { StudentServiceService } from 'src/app/core/services/student-service.service';
@@ -12,8 +12,8 @@ import { StudentServiceService } from 'src/app/core/services/student-service.ser
 export class UpdateStudentComponent implements OnInit {
   @Input() studentList!:student[];
   @Input() etudiantAM!:student;
-
-
+  @Output() updateModeOff=new EventEmitter;
+  
   reactiveForm = this.fb.group({
     firstName:['', [Validators.required, Validators.minLength(3)]],
     lastName: ['',[Validators.required]],
@@ -31,6 +31,7 @@ export class UpdateStudentComponent implements OnInit {
 
       this.studentService.updateStudent(NvEtudiant).subscribe();
       this.updateList(this.etudiantAM,NvEtudiant);
+      this.updateModeOff.emit();
     }
     updateList(element: student,newElement : student) {
       this.studentList.forEach((value,index)=>{

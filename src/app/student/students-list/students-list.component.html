@@ -9,7 +9,7 @@
   <app-add-student (addingModeOff)="adding=false" [studentList]="studentList" ></app-add-student>
   </div>
   <div class="update" *ngIf="updating">
-  <app-update-student [studentList]="studentList" [etudiantAM]="etudiantAM" ></app-update-student>
+  <app-update-student (updateModeOff)="updating=false" [studentList]="studentList" [etudiantAM]="etudiantAM" ></app-update-student>
   </div>
   <div class="delete" *ngIf="deleting">
     <div>
@@ -91,7 +91,7 @@
     </div>
   </div>
   <div class="container">
-    <button class="btn btn-primary" (click)="addform()">Add New User</button>
+    <button class="btn btn-primary" (click)="addform()">Add New Student</button>
   </div>
 
 </div>

@@ -3,8 +3,8 @@
         <h1>Add new student</h1>
     </div>
     <div class="form-group">
-        <label for="fn">First Name</label>
-        <input type="text" class="form-control" id="fn" formControlName="firstName" placeholder="Enter your first name">
+        <label for="fn">First Name :</label>
+        <input type="text" class="in form-control" id="fn" formControlName="firstName" placeholder="Enter your first name">
         <small *ngIf="reactiveForm.get('firstName')?.errors?.['minlength'] && reactiveForm.get('firstName')?.touched "
         style="color: red;">
             Name should be longer then 3 characters</small> 
@@ -14,7 +14,7 @@
       </div>
     <div class="form-group">
         <label for="ln">last Name :</label>
-        <input type="text" class="form-control" id="ln" formControlName="lastName" placeholder="Enter your last name">
+        <input type="text" class="in form-control" id="ln" formControlName="lastName" placeholder="Enter your last name">
         <small *ngIf="reactiveForm.get('lastName')?.errors?.['required']  && reactiveForm.get('lastName')?.touched "
         style="color: red;">
             Last Name is required</small>     

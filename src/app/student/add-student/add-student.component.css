@@ -1,3 +1,9 @@
 .btn{
     margin-right: 10px;
 }
+.in{
+    border:none;
+    background-color: whitesmoke;
+    color: gray;
+    border-bottom: 1px solid gray;
+}
