@@ -68,14 +68,13 @@ export class StudentsListComponent implements OnInit {
     console.log(this.etudiantAM);
   }
   
-  notify(){
-    this.snackBar.open('Student deleted','Close' ,{
-      duration: 3000
-    });
-    console.log(this.snackBar);
-  }
+  isSearched(nom: any, prenom: any, option: any) {
+    if (!this.filter) return true;
 
-   
-   
+    let f = this.filter.toUpperCase().trim();
+    return nom.toUpperCase().includes(f) ||
+      prenom.toUpperCase().includes(f) ||
+      option.toUpperCase().includes(f)
+  }
 
 }

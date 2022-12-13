@@ -51,7 +51,7 @@
             </thead>
             <tbody *ngFor="let st of studentList">
 
-              <tr *ngIf="st.nomE===filter ||st.prenomE===filter||st.option===filter|| !filter ">
+              <tr *ngIf="isSearched(st.nomE, st.prenomE, st.option)">
                 <td>
 
                   <span>{{st.idEtudiant}}</span>
