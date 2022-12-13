@@ -249,3 +249,11 @@ body{margin-top:20px;}
 	justify-content: center;
 
 }
+.cancel{
+	display: flex;
+	position:absolute;
+	cursor: pointer;
+	top: 10px;
+	right: 10px;
+	
+	}

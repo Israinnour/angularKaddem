@@ -4,6 +4,7 @@ import { Competence } from 'src/app/core/models/Competence';
 import { student } from 'src/app/core/models/student';
 import { StudentServiceService } from 'src/app/core/services/student-service.service';
 import { CompetenceService } from 'src/app/core/services/competence.service' ;
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 
 @Component({
@@ -19,49 +20,28 @@ export class AddStudentComponent implements OnInit {
 
   ShSkillsform=false ;
 
+
   reactiveForm = this.fb.group({
     firstName:['', [Validators.required, Validators.minLength(3)]],
     lastName: ['',[Validators.required]],
     option:['',[Validators.required]],
+    skills: this.fb.array([])
     });
     
-    Skillsform = this.fb.group({
-      nomCompetence:['', [Validators.required, Validators.minLength(3)]],
-      type: ['',[Validators.required]],
-      niveauC:['',[Validators.required]],
-      });
-
-    skills(){
-    this.ShSkillsform = !this.ShSkillsform      
-    }
-    
-
     addStudent(){
-     let etudiant =new student();
-     etudiant.nomE=this.reactiveForm.get('firstName')?.value;
-     etudiant.prenomE=this.reactiveForm.get('lastName')?.value;
-     etudiant.option=this.reactiveForm.get('option')?.value;
-
-     this.studentService.addStudent(etudiant).subscribe(etudiant=>this.studentList.push(etudiant as student));
-     this.addingModeOff.emit();
-
-    }
-
-
-    addWithCompetence(){
-       let etudiant =new student();
-     etudiant.nomE=this.reactiveForm.get('firstName')?.value;
-     etudiant.prenomE=this.reactiveForm.get('lastName')?.value;
-     etudiant.option=this.reactiveForm.get('option')?.value;
-      let c = new Competence(); 
-      c.nomCompetence=this.Skillsform.get('nomCompetence')?.value;
-      c.type=this.Skillsform.get('type')?.value;
-      c.etudiants.push(etudiant);
-      c.niveauC=this.Skillsform.get('niveauC')?.value;
-
-      this.competenceService.AddCompetenceAndAssign(c).subscribe(etudiant=>this.studentList.push(etudiant as student))
-    }
-  constructor(private fb:FormBuilder,private studentService:StudentServiceService ,private competenceService:CompetenceService) { }
+      let etudiant =new student();
+      etudiant.nomE=this.reactiveForm.get('firstName')?.value;
+      etudiant.prenomE=this.reactiveForm.get('lastName')?.value;
+      etudiant.option=this.reactiveForm.get('option')?.value;
+ 
+      this.studentService.addStudent(etudiant).subscribe(etudiant=>this.studentList.push(etudiant as student));
+      this.addingModeOff.emit();
+      this.snackBar.open('Student added','Close',{duration:3000});
+ 
+     }
+     
+    
+  constructor(private fb:FormBuilder,private studentService:StudentServiceService ,private snackBar:MatSnackBar) { }
 
   ngOnInit(): void {
   }

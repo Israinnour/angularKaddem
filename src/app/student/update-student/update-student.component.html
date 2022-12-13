@@ -1,6 +1,9 @@
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+<div class="updateModal  ">
 <form  [formGroup]="reactiveForm" (ngSubmit)="updateStudent()">
     <div>
-        <h1>Update student</h1>
+        <h1 style="font-family: 'Anton', sans-serif;">Update student</h1>
     </div>
     <div class="form-group">
         <label for="fn">First Name</label>
@@ -33,6 +36,9 @@
     </div>
     <br>
       
-      <button type="submit" class="btn btn-primary">Update</button>
+      <button [disabled]="reactiveForm.invalid" type="submit" class="btn btn-primary">Update</button>
 </form>
+
+
+</div>
 

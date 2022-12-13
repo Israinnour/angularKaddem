@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { student } from 'src/app/core/models/student';
 import { StudentServiceService } from 'src/app/core/services/student-service.service';
 
@@ -32,6 +33,9 @@ export class UpdateStudentComponent implements OnInit {
       this.studentService.updateStudent(NvEtudiant).subscribe();
       this.updateList(this.etudiantAM,NvEtudiant);
       this.updateModeOff.emit();
+      this.snackbar.open('Student updated','Close',{
+        duration: 3000
+      });
     }
     updateList(element: student,newElement : student) {
       this.studentList.forEach((value,index)=>{
@@ -39,7 +43,7 @@ export class UpdateStudentComponent implements OnInit {
       });
   }
 
-  constructor(private fb:FormBuilder,private studentService:StudentServiceService) { }
+  constructor(private fb:FormBuilder,private studentService:StudentServiceService,private snackbar:MatSnackBar) { }
 
   ngOnInit(): void {
     this.reactiveForm.get('firstName')?.setValue(this.etudiantAM.nomE);

@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { get } from 'https';
 import { student } from 'src/app/core/models/student';
 import { StudentServiceService } from 'src/app/core/services/student-service.service';
-import { DeleteStudentComponent } from '../delete-student/delete-student.component';
 
 @Component({
   selector: 'app-students-list',
@@ -21,7 +21,7 @@ export class StudentsListComponent implements OnInit {
  updating=false;
  filter!:String;
 
-  constructor(private studentService :StudentServiceService,private route:Router) { }
+  constructor(private studentService :StudentServiceService,private route:Router,private snackBar: MatSnackBar) { }
   ngOnInit(): void {
     this.getStudents();
   }
@@ -37,6 +37,7 @@ export class StudentsListComponent implements OnInit {
   showDelete(etudiant:any){
     this.etudiantAM=etudiant;
     this.deleting=true;
+   
   
   }
   hideDelete(){
@@ -49,6 +50,10 @@ export class StudentsListComponent implements OnInit {
     this.studentService.deleteStudent(id).subscribe(()=>this.getStudents());
     this.removeElementFromArray(id);
     this.hideDelete();
+    this.snackBar.open('Student deleted','Close',{
+      duration: 3000
+    });
+   
    }
    removeElementFromArray(id: number) {
     this.studentList.forEach((student,index)=>{
@@ -61,6 +66,13 @@ export class StudentsListComponent implements OnInit {
     this.etudiantAM=etudiant;
     this.updating =!this.updating;
     console.log(this.etudiantAM);
+  }
+  
+  notify(){
+    this.snackBar.open('Student deleted','Close' ,{
+      duration: 3000
+    });
+    console.log(this.snackBar);
   }
 
    
