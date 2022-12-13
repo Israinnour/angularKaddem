@@ -8,7 +8,11 @@ const routes: Routes = [
   {
     path: 'listDepartement',
     loadChildren:() =>import('./gestion-departement/gestion-departement.module').then(m => m.GestionDepartementModule)
-    }
+    },
+    {
+      path: 'listEmployee',
+      loadChildren:() =>import('./gestion-employee/gestion-employee.module').then(m => m.GestionEmployeeModule)
+      }
 
 ];
 

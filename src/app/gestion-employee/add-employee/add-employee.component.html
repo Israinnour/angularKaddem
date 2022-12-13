@@ -1,0 +1,31 @@
+<form [formGroup]="reactiveForm" >
+
+    <div >
+        <h4 >First Name</h4>
+        <div class="mt-4">
+            <div>
+                <input type="text"formControlName="firstName" class="form-control" name="firstName"  id="firstName">
+            </div>
+            <div  *ngIf="firstName?.errors?.['required'] && firstName?.touched"> FirstName is required</div>
+        </div >
+    </div>
+    <div >
+        <h4 >Last Name</h4>
+        <div class="mt-4">
+            <div>
+                <input type="text"formControlName="lastName" class="form-control" name="lastName"  id="lastName">
+            </div>
+            <div  *ngIf="lastName?.errors?.['required'] && lastName?.touched"> LastName is required</div>
+        </div >
+    </div>
+    <div >
+        <h4 >Solde</h4>
+        <div class="mt-4">
+            <div>
+                <input type="text"formControlName="solde" class="form-control" name="solde"  id="solde">
+            </div>
+            <div  *ngIf="solde?.errors?.['required'] && solde?.touched"> Solde is required</div>
+        </div >
+    </div>
+    <button type="submit"  (click)="Add()" >Ajouter</button>
+    </form>

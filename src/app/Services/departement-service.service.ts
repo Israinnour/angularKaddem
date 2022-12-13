@@ -7,11 +7,11 @@ import {HttpClient} from "@angular/common/http";
   providedIn: 'root'
 })
 export class DepartementServiceService {
-  urlAdd='http://localhost:8071/kaddem/departement/add'
-  urlApi = 'http://localhost:8071/kaddem/departement/all';
-  urlDel='http://localhost:8071/kaddem/departement/delete';
-  urlById =  'http://localhost:8071/kaddem/departement/get';
-  urlup='http://localhost:8071/kaddem/departement/update';
+  urlAdd='http://localhost:8080/departement/add';
+  urlApi = 'http://localhost:8080/departement/departements';
+  urlDel='http://localhost:8080/departement/delete';
+  urlById =  'http://localhost:8080/departement/get';
+  urlup='http://localhost:8080/departement/update';
   Departement=[];
   constructor(private http: HttpClient) { }
   getData():Observable<Departement[]> {
@@ -27,7 +27,7 @@ export class DepartementServiceService {
     return this.http.get<Departement>(this.urlById+'/'+id);
   }
   UpdateDepart(id:Number,departement:Departement){
-    alert(departement.nomDepart);
+    alert("success update");
     return this.http.put<Departement>(this.urlup, departement);
   }
 
