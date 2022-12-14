@@ -20,7 +20,7 @@ export class AddEmployeeComponent implements OnInit {
   reactiveForm = this.fb.group({
     firstName:['',[Validators.required]],
     lastName:['',[Validators.required]],
-    solde:['',[Validators.required, Validators.minLength(4)]]
+    solde:['',[Validators.required]]
     });
   Add(){
 

@@ -33,7 +33,7 @@ export class UpdateEmployeeComponent implements OnInit {
     });
 }
   update(){
-    this.ServiceEmp.UpdateEmploye(this.myEmploye.idEmp,this.reactiveForm.value).subscribe(data=>{
+    this.ServiceEmp.UpdateEmploye(this.reactiveForm.value).subscribe(data=>{
       this.R.navigate(['listEmployee']);
       }
       )

@@ -12,7 +12,7 @@ export class EmployeeServiceService {
   urlApi = 'http://localhost:8080/employe/all';
   urlDel='http://localhost:8080/employe/delete';
   urlById = 'http://localhost:8080/employe/get';
-  urlup='http://localhost:8080/employe/update';
+  urlup='http://localhost:8080/employe/updateE';
   Employe=[];
   constructor(private http: HttpClient) { }
   getData():Observable<Employe[]> {
@@ -27,7 +27,7 @@ export class EmployeeServiceService {
   getEmployeById(id: Number){
     return this.http.get<Employe>(this.urlById+'/'+id);
   }
-  UpdateEmploye(id:Number,employe:Employe){
+  UpdateEmploye(employe:Employe){
     alert("success update");
     return this.http.put<Employe>(this.urlup, employe);
   }

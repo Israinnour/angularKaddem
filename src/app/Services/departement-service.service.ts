@@ -26,7 +26,7 @@ export class DepartementServiceService {
   getDepartById(id: Number){
     return this.http.get<Departement>(this.urlById+'/'+id);
   }
-  UpdateDepart(id:Number,departement:Departement){
+  UpdateDepart(departement:Departement){
     alert("success update");
     return this.http.put<Departement>(this.urlup, departement);
   }

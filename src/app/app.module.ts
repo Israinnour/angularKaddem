@@ -14,6 +14,7 @@ import { GestionEmployeeModule } from './gestion-employee/gestion-employee.modul
 
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 
 @NgModule({
@@ -22,6 +23,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HomeComponent,
     HeaderComponent,
     FooterComponent,
+    NotFoundComponent,
 
   ],
   imports: [

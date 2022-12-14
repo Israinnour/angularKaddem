@@ -30,7 +30,7 @@ export class UpdateDepartementComponent implements OnInit {
     });
 }
   update(){
-    this.ServiceDep.UpdateDepart(this.myDepart.idDepart,this.reactiveForm.value).subscribe(data=>{
+    this.ServiceDep.UpdateDepart(this.reactiveForm.value).subscribe(data=>{
 
       this.R.navigate(['listDepartement']);
       }

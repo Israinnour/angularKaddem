@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 const routes: Routes = [
   {path:'', redirectTo:'home', pathMatch:'full'},
@@ -15,7 +16,7 @@ const routes: Routes = [
       },
  { path: 'studentList',
   loadChildren:()=>import('./student/student.module').then(x => x.StudentModule)},
-  {path: '**', component: HomeComponent}
+  {path: '**', component: NotFoundComponent}
 
 
 ];
