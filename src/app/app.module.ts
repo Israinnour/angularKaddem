@@ -32,7 +32,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ReactiveFormsModule,
     HttpClientModule,
     FormsModule,
-    GestionEmployeeModule
+    GestionEmployeeModule,
 
     BrowserAnimationsModule
 

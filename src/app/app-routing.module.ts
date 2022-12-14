@@ -13,10 +13,10 @@ const routes: Routes = [
       path: 'listEmployee',
       loadChildren:() =>import('./gestion-employee/gestion-employee.module').then(m => m.GestionEmployeeModule)
       },
- {path:'', redirectTo:'home', pathMatch:'full'},
  { path: 'studentList',
-  loadChildren:()=>import('./student/student.module').then(x => x.StudentModule)}
-  
+  loadChildren:()=>import('./student/student.module').then(x => x.StudentModule)},
+  {path: '**', component: HomeComponent}
+
 
 ];
 

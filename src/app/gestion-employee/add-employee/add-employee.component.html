@@ -6,7 +6,7 @@
             <div>
                 <input type="text"formControlName="firstName" class="form-control" name="firstName"  id="firstName">
             </div>
-            <div  *ngIf="firstName?.errors?.['required'] && firstName?.touched"> FirstName is required</div>
+            <div [ngStyle]="{'color':'red'}" *ngIf="firstName?.errors?.['required'] && firstName?.touched"> FirstName is required</div>
         </div >
     </div>
     <div >
@@ -15,7 +15,7 @@
             <div>
                 <input type="text"formControlName="lastName" class="form-control" name="lastName"  id="lastName">
             </div>
-            <div  *ngIf="lastName?.errors?.['required'] && lastName?.touched"> LastName is required</div>
+            <div [ngStyle]="{'color':'red'}" *ngIf="lastName?.errors?.['required'] && lastName?.touched"> LastName is required</div>
         </div >
     </div>
     <div >
@@ -24,8 +24,8 @@
             <div>
                 <input type="text"formControlName="solde" class="form-control" name="solde"  id="solde">
             </div>
-            <div  *ngIf="solde?.errors?.['required'] && solde?.touched"> Solde is required</div>
+            <div [ngStyle]="{'color':'red'}" *ngIf="solde?.errors?.['required'] && solde?.touched && reactiveForm.get('solde')?.errors?.['minlength'] "> Solde is required </div>
         </div >
     </div>
-    <button type="submit"  (click)="Add()" >Ajouter</button>
+    <button type="submit" class="btn btn-primary" (click)="Add()" >Ajouter</button>
     </form>

@@ -6,7 +6,7 @@
             <div class="form-group">
                 <input type="text"formControlName="firstName" class="form-control" name="firstName"  id="firstName">
             </div>
-            <div class="alter alter-danger" id="updateField" *ngIf="firstName?.errors?.['required'] && firstName?.touched" > idDepart is required</div>
+            <div [ngStyle]="{'color':'red'}" class="alter alter-danger" id="updateField" *ngIf="firstName?.errors?.['required'] && firstName?.touched" > FirstName is required</div>
 
         </div >
     </div>
@@ -16,7 +16,7 @@
             <div class="form-group">
                 <input type="text"formControlName="lastName" class="form-control" name="lastName"  id="lastName">
             </div>
-            <div class="alter alter-danger" id="updateField" *ngIf="lastName?.errors?.['required'] && lastName?.touched" > idDepart is required</div>
+            <div [ngStyle]="{'color':'red'}" class="alter alter-danger" id="updateField" *ngIf="lastName?.errors?.['required'] && lastName?.touched" > LastName is required</div>
 
         </div >
     </div>
@@ -26,7 +26,7 @@
             <div class="form-group">
                 <input type="text"formControlName="solde" class="form-control" name="solde"  id="solde">
             </div>
-            <div class="alter alter-danger" id="updateField" *ngIf="solde?.errors?.['required'] && solde?.touched" > idDepart is required</div>
+            <div [ngStyle]="{'color':'red'}" class="alter alter-danger" id="updateField" *ngIf="solde?.errors?.['required'] && solde?.touched" > Solde is required</div>
 
         </div >
     </div>
